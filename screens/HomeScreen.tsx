@@ -6,8 +6,9 @@ import {
   ShoppingCartIcon,
 } from "react-native-heroicons/solid";
 import { themeColors } from "../theme";
-import { categories } from "../constants";
+import { categories, featuredFruits } from "../constants";
 import { Category } from "../types";
+import { FruitCard } from "../components";
 
 export default function HomeScreen() {
   const [activeCategory, setActiveCategory] = useState<Category>("Oranges");
@@ -68,6 +69,14 @@ export default function HomeScreen() {
         </ScrollView>
       </View>
       {/* Fruits carousel */}
+      <View className="mt-8">
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {featuredFruits.map((fruit, index) => {
+            return <FruitCard fruit={fruit} key={index} />;
+          })}
+        </ScrollView>
+      </View>
+      {/* Hot sale */}
     </SafeAreaView>
   );
 }
