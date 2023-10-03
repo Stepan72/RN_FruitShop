@@ -1,26 +1,8 @@
-import {
-  View,
-  Text,
-  ColorValue,
-  Image,
-  ImageSourcePropType,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { HeartIcon } from "react-native-heroicons/solid";
 import { useState } from "react";
-
-interface FruitCardProps {
-  fruit: {
-    name: string;
-    price: string;
-    stars: number;
-    desc: string;
-    shadow: string;
-    image: ImageSourcePropType;
-    color: (opacity: number) => ColorValue;
-  };
-}
+import { FruitCardProps } from "../types";
 
 export default function FruitCard({ fruit }: FruitCardProps) {
   const [isFavorite, setIsFavorite] = useState(false);

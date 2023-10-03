@@ -8,7 +8,7 @@ import {
 import { themeColors } from "../theme";
 import { categories, featuredFruits } from "../constants";
 import { Category } from "../types";
-import { FruitCard } from "../components";
+import { FruitCard, FruitCardSales } from "../components";
 
 export default function HomeScreen() {
   const [activeCategory, setActiveCategory] = useState<Category>("Oranges");
@@ -77,6 +77,20 @@ export default function HomeScreen() {
         </ScrollView>
       </View>
       {/* Hot sale */}
+      <View className="mt-8 pl-5 space-y-1">
+        <Text className="text-xl font-bold" style={{ color: themeColors.text }}>
+          Hot Sale
+        </Text>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          style={{ overflow: "visible" }}
+        >
+          {[...featuredFruits].reverse().map((fruit, index) => {
+            return <FruitCardSales fruit={fruit} key={index} />;
+          })}
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }
