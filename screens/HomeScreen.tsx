@@ -38,7 +38,7 @@ export default function HomeScreen() {
         </Text>
         <ScrollView
           horizontal
-          className="mt-8 px-5"
+          className="mt-4 px-5"
           showsHorizontalScrollIndicator={false}
         >
           {categories.map((category, index) => {
@@ -69,15 +69,15 @@ export default function HomeScreen() {
         </ScrollView>
       </View>
       {/* Fruits carousel */}
-      <View className="mt-8">
+      <View className="mt-4">
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
           {featuredFruits.map((fruit, index) => {
-            return <FruitCard fruit={fruit} key={index} />;
+            return <FruitCard {...fruit} key={index} />;
           })}
         </ScrollView>
       </View>
       {/* Hot sale */}
-      <View className="mt-8 pl-5 space-y-1">
+      <View className="mt-4 pl-5 space-y-1">
         <Text className="text-xl font-bold" style={{ color: themeColors.text }}>
           Hot Sale
         </Text>
@@ -87,7 +87,7 @@ export default function HomeScreen() {
           style={{ overflow: "visible" }}
         >
           {[...featuredFruits].reverse().map((fruit, index) => {
-            return <FruitCardSales fruit={fruit} key={index} />;
+            return <FruitCardSales {...fruit} key={index} />;
           })}
         </ScrollView>
       </View>

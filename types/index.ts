@@ -2,20 +2,19 @@ import { categories } from "../constants";
 import { ColorValue, ImageSourcePropType } from "react-native";
 
 export type StackParamList = {
-  HomeScreen: undefined;
-  SecondScreen: undefined;
+  Home: undefined;
+  Product: FruitCardProps;
+  Cart: undefined;
 };
 
 export type Category = (typeof categories)[number];
 
 export interface FruitCardProps {
-  fruit: {
-    name: string;
-    price: string;
-    stars: number;
-    desc: string;
-    shadow: string;
-    image: ImageSourcePropType;
-    color: (opacity: number) => ColorValue;
-  };
+  name: string;
+  price: string;
+  stars: number;
+  desc: string;
+  shadow: string;
+  image: ImageSourcePropType;
+  color: (opacity: number) => ColorValue;
 }
