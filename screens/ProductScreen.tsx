@@ -4,15 +4,16 @@ import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StackParamList } from "../types";
 import { SafeAreaView } from "react-native";
 import { ChevronLeftIcon } from "react-native-heroicons/solid";
-import { useNavigation } from "@react-navigation/native";
 import { themeColors } from "../theme";
 import StarRating from "react-native-star-rating";
 
 type ProductScreenProps = NativeStackScreenProps<StackParamList, "Product">;
 
-export default function ProductScreen({ route }: ProductScreenProps) {
+export default function ProductScreen({
+  route,
+  navigation,
+}: ProductScreenProps) {
   const { name, price, stars, desc, shadow, image, color } = route.params;
-  const navigation = useNavigation();
 
   return (
     <View className="flex-1" style={{ backgroundColor: color(1) }}>
@@ -88,6 +89,9 @@ export default function ProductScreen({ route }: ProductScreenProps) {
               shadowRadius: 25,
               shadowOffset: { width: 0, height: 15 },
               shadowOpacity: 0.5,
+            }}
+            onPress={() => {
+              navigation.navigate("Cart");
             }}
           >
             <Text className="text-xl text-center text-white font-bold">

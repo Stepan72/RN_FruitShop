@@ -9,8 +9,12 @@ import { themeColors } from "../theme";
 import { categories, featuredFruits } from "../constants";
 import { Category } from "../types";
 import { FruitCard, FruitCardSales } from "../components";
+import { StackParamList } from "../types";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
-export default function HomeScreen() {
+type HomeScreenProps = NativeStackScreenProps<StackParamList, "Home">;
+
+export default function HomeScreen({ navigation }: HomeScreenProps) {
   const [activeCategory, setActiveCategory] = useState<Category>("Oranges");
 
   return (
@@ -18,7 +22,12 @@ export default function HomeScreen() {
       {/* top bar */}
       <View className="mx-5 flex-row justify-between items-center">
         <Bars3CenterLeftIcon size="30" color="black" />
-        <TouchableOpacity className="p-2 rounded-xl bg-orange-100">
+        <TouchableOpacity
+          className="p-2 rounded-xl bg-orange-100"
+          onPress={() => {
+            navigation.navigate("Cart");
+          }}
+        >
           <ShoppingCartIcon scale="25" color="orange" />
         </TouchableOpacity>
       </View>

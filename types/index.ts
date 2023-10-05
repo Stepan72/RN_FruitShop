@@ -18,3 +18,13 @@ export interface FruitCardProps {
   image: ImageSourcePropType;
   color: (opacity: number) => ColorValue;
 }
+
+export interface CartItemProps {
+  name: string;
+  price: string;
+  qty: number;
+  desc: string;
+  shadow: string;
+  image: ImageSourcePropType;
+  color: (opacity: number) => ColorValue;
+}
